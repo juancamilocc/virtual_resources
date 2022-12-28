@@ -1,1 +1,1 @@
-Hola como estan, este es un ejemplo de primer archivo en Github!!
+Este repositorio sera utilizado para compartir informacion relevante sobre virtualizacion, herramientas de telecomunicaciones y demas!
