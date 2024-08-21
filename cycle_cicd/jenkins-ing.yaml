@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jenkins-ingress
+  namespace: jenkins
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: <address-domain>
+    http:
+      paths:
+      - backend:
+          service:
+            name: jenkins-server
+            port:
+              number: 8080
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - <address domain>
+    secretName: <tls-cert>
