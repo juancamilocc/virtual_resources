@@ -1,0 +1,19 @@
+FROM gcr.io/kaniko-project/executor:debug AS kaniko
+
+FROM alpine:3.21
+
+RUN apk add --no-cache \
+    bash \
+    git \
+    curl \
+    sed \
+    ca-certificates \
+    && update-ca-certificates
+
+COPY --from=kaniko /kaniko /kaniko
+COPY --from=kaniko /kaniko/.docker /kaniko/.docker
+
+ENV PATH=$PATH:/kaniko
+ENV DOCKER_CONFIG=/kaniko/.docker/
+
+SHELL ["/bin/sh", "-c"]

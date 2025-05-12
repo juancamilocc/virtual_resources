@@ -15,6 +15,6 @@ COPY --from=kaniko /kaniko/docker-credential-ecr-login /kaniko/docker-credential
 COPY --from=kaniko /kaniko/.docker /kaniko/.docker
 COPY --from=busybox:1.32.0 /bin /busybox
 
-ENV PATH $PATH:/usr/local/bin:/kaniko:/busybox
-ENV DOCKER_CONFIG /kaniko/.docker/
-ENV DOCKER_CREDENTIAL_GCR_CONFIG /kaniko/.config/gcloud/docker_credential_gcr_config.json
+ENV PATH=$PATH:/usr/local/bin:/kaniko:/busybox
+ENV DOCKER_CONFIG=/kaniko/.docker/
+ENV DOCKER_CREDENTIAL_GCR_CONFIG=/kaniko/.config/gcloud/docker_credential_gcr_config.json
