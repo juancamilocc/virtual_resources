@@ -21,6 +21,12 @@ On this page you will find documentation in that explain step by step setup and 
 15. **[ILM and Snapshot strategy for logs ingest in ELK stack](https://github.com/juancamilocc/virtual_resources/wiki/ilm-and-snapshots-in-elk)**
 16. **[Launch ephemeral EC2 Agents using Jenkins and Terraform](https://github.com/juancamilocc/virtual_resources/wiki/launch-ephemeral-jenkins-agents)**
 17. **[Manage Dashboards in Kibana Using Spaces](https://github.com/juancamilocc/virtual_resources/wiki/spaces-kibana-dashboards)**
+18. **[Cleanup Pods Maintenance Task](https://github.com/juancamilocc/virtual_resources/wiki/mantainance-task-pods)**
+
+## Useful Repositories
+
+1. **[ECR Cleaner](https://github.com/juancamilocc/ecr-cleaner)**
+2. **[Luanch Ephemeral Jenkins Agents](https://github.com/juancamilocc/launch-ephemeral-jenkins-agents)**
 
 ## Other guides
 
