@@ -22,6 +22,7 @@ On this page you will find documentation in that explain step by step setup and 
 16. **[Launch ephemeral EC2 Agents using Jenkins and Terraform](https://github.com/juancamilocc/virtual_resources/wiki/launch-ephemeral-jenkins-agents)**
 17. **[Manage Dashboards in Kibana Using Spaces](https://github.com/juancamilocc/virtual_resources/wiki/spaces-kibana-dashboards)**
 18. **[Cleanup Pods Maintenance Task](https://github.com/juancamilocc/virtual_resources/wiki/mantainance-task-pods)**
+19. **[Certificate Rotation in Zero Trust Internal Environments](https://github.com/juancamilocc/virtual_resources/wiki/cert-rotation-zerotrust)**
 
 ## Useful Repositories
 
