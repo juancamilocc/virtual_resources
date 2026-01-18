@@ -1,0 +1,23 @@
+{
+  "unseal_keys_b64": [
+    "xXsT7ATrwa/p8xu25Qh5w1i45Ws52/HaTNTgV/IgGrVu",
+    "tawyjr3+ephYGp2UVG1R2rHx/llhdFvwOAJTuUSVEir6",
+    "qYtPJw258fVsuGT3+c2FW/UBLDAFdDbkKNrOfy7LBWZ4",
+    "94bUWqcInGiAHkp8XMPNj5aySDIvh+6KjTGwP2xV1Srh",
+    "/35mrdLuVknLM7Y3aIyBSJ6lxMI49+3Yr1ZHS22pvmtv"
+  ],
+  "unseal_keys_hex": [
+    "c57b13ec04ebc1afe9f31bb6e50879c358b8e56b39dbf1da4cd4e057f2201ab56e",
+    "b5ac328ebdfe7a98581a9d94546d51dab1f1fe5961745bf0380253b94495122afa",
+    "a98b4f270db9f1f56cb864f7f9cd855bf5012c30057436e428dace7f2ecb056678",
+    "f786d45aa7089c68801e4a7c5cc3cd8f96b248322f87ee8a8d31b03f6c55d52ae1",
+    "ff7e66add2ee5649cb33b637688c81489ea5c4c238f7edd8af56474b6da9be6b6f"
+  ],
+  "unseal_shares": 5,
+  "unseal_threshold": 3,
+  "recovery_keys_b64": [],
+  "recovery_keys_hex": [],
+  "recovery_keys_shares": 0,
+  "recovery_keys_threshold": 0,
+  "root_token": "hvs.TRt84KuhsSPBD0Fo9jCJuUak"
+}

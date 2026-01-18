@@ -1,0 +1,12 @@
+apiVersion: apisix.apache.org/v2
+kind: ApisixTls
+metadata:
+  name: hello-tls
+  namespace: ingress-apisix
+spec:
+  ingressClassName: apisix
+  hosts:
+  - "*.example.local"
+  secret:
+    name: hello-tls
+    namespace: ingress-apisix

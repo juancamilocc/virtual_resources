@@ -1,0 +1,42 @@
+apisix:
+  ssl:
+    enabled: true
+    containerPort: 9443 
+
+  customLuaSharedDicts:
+    - name: poly-cache
+      size: 10m
+    
+gateway:
+  type: NodePort
+  http:
+    enabled: true
+    servicePort: 80
+    containerPort: 9080
+  tls:
+    enabled: true
+    servicePort: 443
+    containerPort: 9443
+
+ingress-controller:
+  enabled: true
+  config:
+    kubernetes:
+      ingressClass: apisix
+      ingressVersion: apisix.apache.org/v2
+      watchNamespace: "*"
+      enableNamespaceSelector: false
+      namespaces: [] 
+      apisixRouteRootNamespace: ingress-apisix
+    
+  apisix:
+    adminService:
+      namespace: ingress-apisix
+    adminServerAddress: "http://apisix-admin.ingress-apisix.svc.cluster.local:9180/apisix/admin"
+    adminKey: "edd1c9f034335f136f87ad84b625c8f1"
+
+  gatewayProxy:
+    createDefault: true
+
+dashboard:
+  enabled: true

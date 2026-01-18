@@ -1,0 +1,17 @@
+apiVersion: apisix.apache.org/v2
+kind: ApisixRoute
+metadata:
+  name: hello-route
+  namespace: default
+spec:           
+  ingressClassName: apisix
+  http:                                          
+  - name: hello                              
+    match:
+      hosts:
+      - hello.example.local
+      paths:
+      - /*
+    backends:
+    - serviceName: hello-app
+      servicePort: 80
