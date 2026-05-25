@@ -1,0 +1,59 @@
+parameters:
+  - name: targetPipeline
+    type: string
+    displayName: "provide target pipeline"
+
+  - name: targetBranch
+    type: string
+    displayName: "provide target branch"
+
+steps:
+- task: Bash@3
+  name: Invoke_Second_Pipeline
+  displayName: 'Invoke Second Pipeline from specific branch'
+  env:
+    AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
+  inputs:
+    targetType: 'inline'
+    script: |
+      set -euo pipefail
+
+      TARGET_PIPELINE_NAME="${{ parameters.targetPipeline }}"
+      TARGET_BRANCH_NAME="${{ parameters.targetBranch }}"
+
+      az devops configure --defaults organization=$(System.CollectionUri) project=$(System.TeamProject)
+
+      echo "Triggering pipeline '$TARGET_PIPELINE_NAME' on branch '$TARGET_BRANCH_NAME'..."
+      target_run_pipeline=$(az pipelines run \
+        --name "$TARGET_PIPELINE_NAME" \
+        --branch "$TARGET_BRANCH_NAME" \
+        -o json)
+
+      target_run_id=$(echo $target_run_pipeline | jq -r '.id')
+
+      while true; do
+
+        sleep 30
+
+        build_info=$(az pipelines build show \
+          --id $target_run_id \
+          --detect true \
+          -o json)
+
+        target_status_info=$( echo "$build_info" | jq -r '.status')
+
+        result=$(echo "$build_info" | jq -r '.result')
+
+        echo "Current Status: $target_status_info..."
+
+        if [ "$target_status_info" == "completed" ]; then
+          echo "Target pipeline finished with result: $result"
+
+          if [ "$result" == "succeeded" ]; then
+            exit 0
+          else
+            echo "Target pipeline failed or was cancelled."
+            exit 1
+          fi
+        fi
+      done

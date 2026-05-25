@@ -1,0 +1,49 @@
+trigger:
+  - $(Build.SourceBranchName)
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+parameters:
+  - name: targetPipeline
+    type: string
+    displayName: "provide target pipeline"
+    default: 'Second-Pipeline'
+
+  - name: targetBranch
+    type: string
+    displayName: "provide target branch"
+    default: 'secondbranch'
+
+  - name: skipInvoking
+    type: boolean
+    displayName: "invoke second pipeline"
+    default: true
+
+stages:
+
+- stage: Test
+  displayName: Test
+  jobs:
+
+    - job: Test1
+      steps:
+      - task: Bash@3
+        inputs:
+          targetType: 'inline'
+          script: |
+            echo "First stage..."
+
+- stage: Invoke_Second_Pipeline
+  displayName: 'Invoke Second Pipeline'
+  dependsOn: Test
+  condition: and(succeeded(), eq(${{ parameters.skipInvoking }}, true))
+  jobs:
+
+    - job: InvokeSecondPipeline
+      displayName: 'Invoke Second Pipeline'
+      steps:
+        - template: DevOps/templates/invoke-second-pipeline.yaml
+          parameters:
+            targetPipeline: ${{ parameters.targetPipeline }}
+            targetBranch: ${{ parameters.targetBranch }}
