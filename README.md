@@ -23,6 +23,7 @@ On this page you will find documentation in that explain step by step setup and 
 17. **[Manage Dashboards in Kibana Using Spaces](https://github.com/juancamilocc/virtual_resources/wiki/spaces-kibana-dashboards)**
 18. **[Cleanup Pods Maintenance Task](https://github.com/juancamilocc/virtual_resources/wiki/mantainance-task-pods)**
 19. **[Certificate Rotation in Zero Trust Internal Environments](https://github.com/juancamilocc/virtual_resources/wiki/cert-rotation-zerotrust)**
+20. **[Trigger Secondary Azure Pipeline with Status Validation](https://github.com/juancamilocc/virtual_resources/wiki/trigger-second-pipeline)**
 
 ## Useful Repositories
 
